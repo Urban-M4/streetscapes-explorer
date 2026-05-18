@@ -18,11 +18,16 @@ export type Instance = components["schemas"]["Instance"];
 export type AggregateStats = components["schemas"]["AggregateStats"];
 export type ImagesQueryParams = paths["/images"]["get"]["parameters"]["query"];
 
-export function useStreetscapes() {
+export function useStreetscapeBaseUrl() {
   const [streetscapesWebServiceUrl] = useQueryState(
     "s",
     parseAsString.withDefault("http://localhost:3000"),
   );
+  return streetscapesWebServiceUrl;
+}
+
+export function useStreetscapes() {
+  const streetscapesWebServiceUrl = useStreetscapeBaseUrl();
   const fetchClient = createFetchClient<paths>({
     baseUrl: streetscapesWebServiceUrl,
   });

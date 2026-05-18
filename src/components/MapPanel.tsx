@@ -10,7 +10,11 @@ import Map, {
 } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-import { useCurrentImageId, useImages } from "@/hooks/streetscapes";
+import {
+  useCurrentImageId,
+  useImages,
+  useStreetscapeBaseUrl,
+} from "@/hooks/streetscapes";
 import { useTheme } from "@/components/theme-provider";
 import { useRef, useState } from "react";
 import { ZoomToImagesControl } from "./ZoomToImagesControl";
@@ -19,6 +23,7 @@ const selectedMarkerCololr = "#fd9a00"; // tailwind orange-500
 const unselectedMarkerColor = "#007cbf"; // tailwind sky-600
 
 export function MapPanel() {
+  const streetscapesWebServiceUrl = useStreetscapeBaseUrl();
   const [currentImageId, setCurrentImageId] = useCurrentImageId();
   const { isDarkMode } = useTheme();
   const mapRef = useRef<MapRef | null>(null);
@@ -45,7 +50,7 @@ export function MapPanel() {
       id: imageLookup[img.id],
       properties: {
         id: img.id,
-        url: img.url,
+        url: `${streetscapesWebServiceUrl}/images/${img.id}/img`,
       },
       geometry: {
         type: "Point" as const,

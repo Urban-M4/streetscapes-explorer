@@ -1,4 +1,8 @@
-import { useCurrentImageInfo, useImageActions } from "@/hooks/streetscapes";
+import {
+  useCurrentImageInfo,
+  useImageActions,
+  useStreetscapeBaseUrl,
+} from "@/hooks/streetscapes";
 import { Rating } from "@/components/rating";
 import { Tags } from "@/components/Tags";
 import { Notes } from "@/components/Notes";
@@ -13,6 +17,7 @@ import {
 } from "./ui/accordion";
 
 export function ImagePanel() {
+  const streetscapesWebServiceUrl = useStreetscapeBaseUrl();
   const { data: imageInfo, isLoading, error } = useCurrentImageInfo();
   const actions = useImageActions();
 
@@ -28,12 +33,15 @@ export function ImagePanel() {
     return <div className="flex-1">Error: {String(error)}</div>;
   }
 
+
+  const imgUrl = `${streetscapesWebServiceUrl}/images/${imageInfo.id}/img`;
+
   return (
     <div className="flex-1 p-2 gap-4 flex flex-col">
       <h1 className="text-xl">Image: {imageInfo.id}</h1>
       <AnnotatedImage
         id={imageInfo.id}
-        url={imageInfo.url}
+        url={imgUrl}
         height={imageInfo.height}
         width={imageInfo.width}
         segmentations={imageInfo.segmentation ?? []}
