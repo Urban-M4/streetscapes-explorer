@@ -33,7 +33,6 @@ export function ImagePanel() {
     return <div className="flex-1">Error: {String(error)}</div>;
   }
 
-
   const imgUrl = `${streetscapesWebServiceUrl}/images/${imageInfo.id}/img`;
 
   return (
