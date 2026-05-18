@@ -13,7 +13,7 @@ authors:
     given-names: Stefan
     orcid: "https://orcid.org/0000-0002-5821-2060"
   - given-names: Alexander
-    orcid: 'https://orcid.org/0000-0002-7045-1005'
+    orcid: "https://orcid.org/0000-0002-7045-1005"
     family-names: Hadjiivanov
     email: a.hadjiivanov@esciencecenter.nl
     affiliation: Netherlands eScience Center
@@ -21,16 +21,16 @@ authors:
     family-names: Kalverla
     email: p.kalverla@esciencecenter.nl
     affiliation: Netherlands eScience Center
-    orcid: 'https://orcid.org/0000-0002-5025-7862'
+    orcid: "https://orcid.org/0000-0002-5025-7862"
   - affiliation: "Netherlands eScience Center"
     family-names: Schilperoort
     given-names: Bart
     orcid: "https://orcid.org/0000-0003-4487-9822"
-repository-code: 'https://github.com/Urban-M4/streetscapes-explorer'
+repository-code: "https://github.com/Urban-M4/streetscapes-explorer"
 abstract: >-
   Streetscapes Explorer is a web application for exploring and modifying
   streetscapes data.
 identifiers:
   - type: doi
     value: 10.5281/zenodo.19853272
-    description: ' Latest version of software'
+    description: " Latest version of software"
